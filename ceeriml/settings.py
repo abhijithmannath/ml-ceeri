@@ -137,8 +137,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+
 MEDIA_URL = '/Patients/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'Patients')
+
 
 if 'ON_PROD' in os.environ:
     from prod_settings import *

@@ -19,4 +19,4 @@ class RawSession(models.Model):
     created = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-    	return '%s, %s'%(self.session_name, self.patient_id)
+    	return 'Patient: %s, Session: %s'%(self.patient_id, self.session_name)
