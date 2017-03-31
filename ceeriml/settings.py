@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'geo',
+    'session',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -101,6 +103,21 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+
+
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.BrowsableAPIRenderer',
+        'rest_framework.renderers.JSONRenderer',
+    ),
+}
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
@@ -119,6 +136,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+MEDIA_URL = '/Patients/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'Patients')
 
 if 'ON_PROD' in os.environ:
     from prod_settings import *

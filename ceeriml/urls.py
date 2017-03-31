@@ -16,8 +16,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from geo.views import log_location
+from session.views import RawSession
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     url(r'^log-location/',log_location),
+    url(r'^new-session/',RawSession.as_view()),
      url(r'^', admin.site.urls),
-]
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
