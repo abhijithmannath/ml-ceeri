@@ -12,7 +12,7 @@ def upload_to(instance, filename):
 
 class RawSession(models.Model):
     patient_id = models.IntegerField()
-    session_name = models.CharField(max_length=10, db_index=True, blank=True)
+    session_name = models.CharField(max_length=25, db_index=True, blank=True)
     remarks = models.CharField(max_length=50, blank=True)
     xray = models.ImageField(blank=True, null=True, upload_to=upload_to)
     bloodwork = models.ImageField(blank=True, null=True, upload_to=upload_to)
