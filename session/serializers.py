@@ -6,4 +6,4 @@ class RawSessionSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = RawSession
-        fields = ('patient_id','session_name','remarks','xray','bloodwork')
+		fields = ('patient_id','session_name','remarks','xray','bloodwork')
