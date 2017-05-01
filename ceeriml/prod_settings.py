@@ -1,4 +1,4 @@
-
+#Production settings file for Production server
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',

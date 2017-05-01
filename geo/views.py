@@ -2,8 +2,15 @@ from django.shortcuts import render
 from .models import GeoLocation
 from django.http import HttpResponse
 
-# Create your views here.
+
 def log_location(request):
+	"""
+	:params
+		:lat  - latitude
+		:lon  - longitude
+		:user_agent  - useful for IOT applications that needs to log the client 
+						that send the location
+	"""
 	if request.method == 'GET':
 		user_agent = request.GET.get('user_agent','test')
 		try:

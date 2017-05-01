@@ -8,4 +8,5 @@ class RawSessionAdmin(admin.ModelAdmin):
 
 admin.site.register(RawSession, RawSessionAdmin)
 
-# Register your models here.
+#This Interface Registers the Admin Interface for Administration  purposes
+#This is a secure endpoint only accessible to STAFF users

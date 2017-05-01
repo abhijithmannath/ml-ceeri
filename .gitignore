@@ -54,3 +54,4 @@ scrape.py
 staticfiles/
 *.sock
 Patients/
+creds
