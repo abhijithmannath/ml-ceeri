@@ -46,7 +46,7 @@ class PiDataView(mixins.ListModelMixin, mixins.CreateModelMixin,
 	generics.GenericAPIView):
     queryset = RaspDataSet.objects.all()
     serializer_class = RaspDataSerializer
-    authentication_classes = (BasicAuthentication)
+    authentication_classes = (BasicAuthentication,)
 
 
     def get(self, request, *args, **kwargs):
