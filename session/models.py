@@ -32,3 +32,15 @@ class RawSession(models.Model):
 
     def __str__(self):
     	return 'Patient: %s, Session: %s'%(self.patient_id, self.session_name)
+
+class RaspDataSet(models.Model):
+    temp = models.FloatField()
+    humidity = models.FloatField()
+    data3 = models.FloatField()
+    data4 = models.FloatField()
+    data5 = models.FloatField()
+    data6 = models.FloatField()
+    data7 = models.FloatField()
+    data8 = models.FloatField()
+
+    indexed_at = models.DateTimeField(auto_now=True)

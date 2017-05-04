@@ -1,6 +1,7 @@
-from .models import RawSession
-from .serializers import RawSessionSerializer
+from .models import RawSession, RaspDataSet
+from .serializers import RawSessionSerializer, RaspDataSerializer
 from rest_framework import mixins
+from rest_framework.response import Response
 from rest_framework import generics
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from rest_framework.mixins import UpdateModelMixin
@@ -39,3 +40,22 @@ class RawSessionView(UpdateModelMixin, mixins.ListModelMixin, mixins.CreateModel
     	_obj = RawSession.objects.filter(patient_id=args['patient_id'], 
     			session_name=args['session_name']).first()
     	return _obj
+
+
+class PiDataView(mixins.ListModelMixin, mixins.CreateModelMixin, 
+	generics.GenericAPIView):
+    queryset = RaspDataSet.objects.all()
+    serializer_class = RaspDataSerializer
+    authentication_classes = (BasicAuthentication)
+
+
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
+
+	def post(self, request, *args, **kwargs):
+		for x in request.data['data']:
+			RaspDataSet.objects.create(**x)
+		return Response(1)
+
+    		
+
